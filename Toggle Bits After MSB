@@ -1,0 +1,63 @@
+//Toggle Bits After MSB (String/Bit Manipulation)
+//Problem:
+//For a positive integer N, convert to binary, toggle all bits from the MSB downward, and output the resulting decimal.
+//Input:
+//10
+//Output:
+//5
+
+//easy version
+public class ToggleBitsSimple {
+    public static int toggleBits(int N) {
+        // Step 1: Convert number to binary string
+        String binary = Integer.toBinaryString(N);  // e.g. 10 → "1010"
+        
+        // Step 2: Flip each bit in the binary string
+        String flipped = "";
+        for (int i = 0; i < binary.length(); i++) {
+            char bit = binary.charAt(i);
+            if (bit == '1') {
+                flipped += '0';
+            } else {
+                flipped += '1';
+            }
+        }
+
+        // Step 3: Convert the flipped binary string back to number
+        int result = Integer.parseInt(flipped, 2);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int input = 10;
+        int output = toggleBits(input);
+        System.out.println(output);  // Output: 5
+    }
+}
+
+
+//space optimal version
+public class ToggleBitsOptimal {
+    public static int toggleBits(int N) {
+        // Step 1: Find number of bits in N (i.e., MSB position)
+        int msbPos = 0;
+        int temp = N;
+
+        while (temp > 0) {
+            msbPos++;      // count how many bits are there
+            temp = temp / 2; // divide by 2 to shift bits right
+        }
+
+        // Step 2: Create a mask with all 1s of length msbPos
+        int mask = (1 << msbPos) - 1;
+
+        // Step 3: XOR N with mask to flip the bits
+        return N ^ mask;
+    }
+
+    public static void main(String[] args) {
+        int input = 10;
+        int output = toggleBits(input);
+        System.out.println(output); // Output: 5
+    }
+}
