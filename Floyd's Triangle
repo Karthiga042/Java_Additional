@@ -1,0 +1,28 @@
+//Print Floyd's Triangle (TCS Digital Coding – 2024)
+//Generate Floyd’s triangle up to row N, where numbers increase sequentially.
+//Input:
+//4
+//Output:
+//1
+//2 3
+//4 5 6
+//7 8 9 10
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int k=1;
+		for(int i=1;i<=n;i++)
+		{
+		    for(int j=1;j<=i;j++)
+		    {
+		        System.out.print(k+" ");
+		        k++;
+		    }
+		    System.out.println();
+		}
+	}
+}
