@@ -1,0 +1,69 @@
+//Print Alphabet Pyramid (Accenture Technical Round – 2023)
+//Given N, print centered alphabets starting from ‘A’ per row.
+//Input:
+//4
+//Output:
+//   A
+//  B B
+// C   C
+//D     D
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i++)
+		{
+		    for(int j=1;j<=n-i;j++)
+		    {
+		        System.out.print("-");
+		    }
+		    for(int j=1;j<=i;j++)
+		    {
+		        if(j==1)
+		        System.out.print((char)('A'+i-1));
+		    }
+		    for(int j=1;j<=2*i-3;j++)
+		    {
+		        if(i!=1)
+		        System.out.print("-");
+		    }
+		    if(i!=1)
+		    System.out.print((char)('A'+i-1));
+		    System.out.println();
+		}
+	}
+}
+
+// import java.util.*;
+// public class Main
+// {
+// 	public static void main(String[] args) {
+// 		Scanner sc=new Scanner(System.in);
+// 		int n=sc.nextInt();
+// 		char ch='A';
+// 		for(int i=1;i<=n;i++)
+// 		{
+// 		    for(int j=1;j<=n-i;j++)
+// 		    {
+// 		        System.out.print("-");
+// 		    }
+// 		    for(int j=1;j<=i;j++)
+// 		    {
+// 		        if(j==1)
+// 		        System.out.print(ch);
+// 		    }
+// 		    for(int j=1;j<=2*i-3;j++)
+// 		    {
+// 		        if(i!=1)
+// 		        System.out.print("-");
+// 		    }
+// 		    if(i!=1)
+// 		    System.out.print(ch);
+//     		ch++;
+// 		    System.out.println();
+// 		}
+// 	}
+// }
