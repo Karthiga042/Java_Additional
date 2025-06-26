@@ -1,0 +1,36 @@
+//Calculate rebound height from given initial height and velocities, using formula with string inputs.
+//Input:
+//H=100, V=20, Vn=10
+//Output:
+//400
+
+public class ReboundHeightCalculator {
+    public static int calculateReboundHeight(String input) {
+        String[] parts = input.split(",");
+        int H = 0, V = 0, Vn = 0;
+
+        for (int i = 0; i < parts.length; i++) {
+            String part = parts[i].trim(); // Remove whitespace
+
+            if (part.startsWith("H=")) {
+                H = Integer.parseInt(part.substring(2));
+            } else if (part.startsWith("V=")) {
+                V = Integer.parseInt(part.substring(2));
+            } else if (part.startsWith("Vn=")) {
+                Vn = Integer.parseInt(part.substring(3));
+            }
+        }
+
+        // Formula: H * (V / Vn)^2
+        double ratio = (double) V / Vn;
+        double reboundHeight = H * Math.pow(ratio, 2);
+
+        return (int) reboundHeight;
+    }
+
+    public static void main(String[] args) {
+        String input = "H=100, V=20, Vn=10";
+        int output = calculateReboundHeight(input);
+        System.out.println(output); // Output: 400
+    }
+}
